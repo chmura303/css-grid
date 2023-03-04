@@ -1,0 +1,224 @@
+:root {
+  --clr-primary-400: #80eaac;
+  --clr-secondary-400: #144272;
+  --clr-secondary-500: #0a2647;
+  --clr-neutral-100: #ffffff;
+  --clr-neutral-200: #f9f5ec;
+  --clr-neutral-300: #a8a8a8;
+
+  --ff-primary: 'Open Sans', sans-serif;
+
+  --fw-400: 500;
+  --fw-700: 600;
+
+  --fs-300: 0.6875rem;
+  --fs-400: 0.8125rem;
+  --fs-500: 1.25rem;
+
+  --gap-200: 1rem;
+  --gap-300: 1.5rem;
+
+  --flow-spacer-200: 1rem;
+}
+
+/* --- || CSS RESET --- */
+
+/* makes sizing easier */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* dark mode user-agent-styles */
+
+html {
+  color-scheme: dark light;
+}
+
+/* min body height */
+
+body {
+  min-height: 100vh;
+}
+
+/* responsive images/videos */
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* --- || GENERAL STYLING --- */
+
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-400);
+
+  background-color: var(--clr-neutral-200);
+}
+
+h1,
+h2 {
+  font-weight: var(--fw-700);
+}
+
+/* utilities */
+
+.flex {
+  display: flex;
+  gap: var(--gap-200, 1rem);
+}
+
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-spacer-200, 1rem);
+}
+
+.bg-primary-400 {
+  background: var(--clr-primary-400);
+}
+
+.bg-secondary-400 {
+  background: var(--clr-secondary-400);
+}
+
+.bg-secondary-500 {
+  background: var(--clr-secondary-500);
+}
+
+.bg-neutral-100 {
+  background: var(--clr-neutral-100);
+}
+
+.text-neutral-100 {
+  color: var(--clr-neutral-100);
+}
+
+.text-secondary-500 {
+  color: var(--clr-secondary-500);
+}
+
+/* components */
+
+.info-grid {
+  display: grid;
+  gap: var(--gap-300);
+  grid-auto-columns: 1fr;
+  grid-template-areas:
+    'one'
+    'two'
+    'three'
+    'four'
+    'five';
+
+  padding-block: 2rem;
+  width: min(95%, 70rem);
+  margin-inline: auto;
+}
+
+.info {
+  font-size: var(--fs-400);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 2.5rem 3.75rem 3rem -3rem var(--clr-neutral-300);
+}
+
+.one {
+  grid-area: one;
+}
+
+.two {
+  grid-area: two;
+}
+
+.three {
+  grid-area: three;
+}
+
+.four {
+  grid-area: four;
+}
+
+.five {
+  grid-area: five;
+}
+
+@media screen and (min-width: 33em) {
+  .info-grid {
+    grid-template-areas:
+      'one one'
+      'two three'
+      'five five'
+      'four four';
+  }
+}
+
+@media screen and (min-width: 38em) {
+  .info-grid {
+    grid-template-areas:
+      'one one'
+      'two five'
+      'three five'
+      'four four';
+  }
+}
+
+@media screen and (min-width: 54em) {
+  .info-grid {
+    grid-template-areas:
+      'one one two'
+      'five five five'
+      'three four four';
+  }
+}
+
+@media screen and (min-width: 75em) {
+  .info-grid {
+    grid-template-areas:
+      'one one two five'
+      'three four four five';
+  }
+}
+
+.info img {
+  width: 1.75rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+.info .name {
+  font-size: var(--fs-400);
+  font-weight: var(--fw-700);
+  line-height: 1;
+}
+
+.info .profession {
+  font-size: var(--fs-300);
+  opacity: 0.5;
+}
+
+.info > p:first-of-type {
+  font-size: var(--fs-500);
+  line-height: 1.2;
+}
+
+.info > p:last-of-type {
+  opacity: 0.7;
+}
